@@ -62,8 +62,8 @@ class CsvGeneExpressionBarplot3:
         with PdfPages('gene_expression_' +
                       datetime.datetime.now().strftime('%Y-%m-%d-%H:%M:%S') +
                       '.pdf') as pdf_barplots:
-            array_genes_barplot = dict_mean.keys()
-            for gene in array_genes_barplot:
+            array_genes = dict_mean.keys()
+            for gene in array_genes:
                 mean_gene_groups = dict_mean.get(gene).values()
                 sem_gene_groups = dict_sem.get(gene).values()
                 x_axis = dict_mean.get(gene).keys()
