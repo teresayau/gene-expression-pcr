@@ -138,7 +138,7 @@ class GeneExpressionPercentageStatisticsVersion3:
         else:
             return 'kruskal_p: {}, Accept Ho'.format(kruskal_p)
 
-    def dict_stats_test_application(self):
+    def dict_gene_univariate_test(self):
         dict_normal = self.get_dict_normaltest_combined()
         dict_levene = self.get_dict_levene_test()
         dict_stats_test = {}
@@ -158,7 +158,7 @@ class GeneExpressionPercentageStatisticsVersion3:
         return pd.DataFrame.from_dict(dict_mean, orient='index')
 
     def convert_dict_univariate_to_dataframe(self):
-        dict_univariate_test = self.dict_stats_test_application()
+        dict_univariate_test = self.dict_gene_univariate_test()
         return pd.DataFrame.from_dict(dict_univariate_test, orient='index')
 
     @staticmethod
