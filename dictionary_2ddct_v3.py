@@ -19,7 +19,7 @@ class Dictionary2ddctVersion3:
         self.df_complete_2_ddct = self.df_2_delta_delta()
 
     def df_2_delta_delta(self):
-        df = self.get_data_from_database()
+        df = self.collect_data_from_database()
         df_processed = self.process_df_for_operations(df)
         array_housekeeping_column = self.get_array_housekeeping_column(df_processed)
         df_dct = self.get_delta_ct(df_processed, array_housekeeping_column)
@@ -52,7 +52,7 @@ class Dictionary2ddctVersion3:
 
         return df
 
-    def get_data_from_database(self):
+    def collect_data_from_database(self):
         if self._database_type == 'mongo':
             df = self.create_df_from_mongodb()
 

@@ -73,7 +73,7 @@ class GeneExpressionPercentageStatisticsVersion3:
         return dict_normal_test_groups
 
     @staticmethod
-    def levene_test(gene_data):
+    def levene_test_method(gene_data):
         array1, array2, array3, array4, array5 = gene_data.values()
         w_value, levene_p = stats.levene(array1,
                                          array2,
@@ -88,7 +88,7 @@ class GeneExpressionPercentageStatisticsVersion3:
     def get_dict_levene_test(self):
         dict_levene_test = {}
         for gene, gene_data in self.dict_percentage_gene_group.items():
-            dict_levene_test[gene] = self.levene_test(gene_data)
+            dict_levene_test[gene] = self.levene_test_method(gene_data)
         return dict_levene_test
 
     def combine_normaltest_dict_by_group(self, gene):
